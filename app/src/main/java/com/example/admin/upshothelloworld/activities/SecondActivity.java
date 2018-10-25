@@ -1,8 +1,11 @@
 package com.example.admin.upshothelloworld.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.admin.upshothelloworld.R;
@@ -12,6 +15,7 @@ public class SecondActivity extends AppCompatActivity {
     private static final String TAG = "SecondActivity";
     private String mName;
     private TextView mTextViewName;
+    private Button mButtonImplicit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,8 +23,19 @@ public class SecondActivity extends AppCompatActivity {
         mName = getIntent().getStringExtra("NAME");
         mTextViewName = findViewById(R.id.textView);
 
+        mButtonImplicit = findViewById(R.id.buttonImplicitIntent);
+
         if(mName!=null)
         mTextViewName.setText(mName);
+
+        mButtonImplicit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SecondActivity.this, ImplictIntentActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
         System.out.println("Oncreate");
     }
