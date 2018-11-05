@@ -47,6 +47,7 @@ public class SharedPrefActivity extends AppCompatActivity {
                 textViewName.setText(name);
             }
         });
+        //adding comment
 
     }
 }
