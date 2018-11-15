@@ -1,6 +1,7 @@
 package com.example.admin.upshothelloworld.activities;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,7 +15,7 @@ import com.example.admin.upshothelloworld.R;
 public class ToastAlertActivity extends AppCompatActivity {
 
     EditText editText;
-    Button button, alert;
+    Button button, alert, broadCast;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +35,16 @@ public class ToastAlertActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showAlert();
+            }
+        });
+
+        broadCast = findViewById(R.id.sendBroadCast);
+        broadCast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction("com.upshot.myaction");
+                sendBroadcast(intent);
             }
         });
     }
