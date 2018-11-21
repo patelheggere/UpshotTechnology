@@ -14,11 +14,7 @@
         <activity android:name=".activities.ImplictIntentActivity" />
         <activity android:name=".activities.SharedPrefActivity" />
         <activity android:name=".activities.ToastAlertActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <service
@@ -42,6 +38,14 @@
                 <action android:name="com.upshot.myaction" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".activities.SQLiteActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
