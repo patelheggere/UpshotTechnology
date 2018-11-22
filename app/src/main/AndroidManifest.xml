@@ -13,9 +13,7 @@
         <activity android:name=".activities.SecondActivity" />
         <activity android:name=".activities.ImplictIntentActivity" />
         <activity android:name=".activities.SharedPrefActivity" />
-        <activity android:name=".activities.ToastAlertActivity">
-
-        </activity>
+        <activity android:name=".activities.ToastAlertActivity" />
 
         <service
             android:name=".activities.MyService"
@@ -39,12 +37,16 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activities.SQLiteActivity">
+        <activity android:name=".activities.SQLiteActivity"></activity>
+        <activity android:name=".activities.FetchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activities.DeleteActivity">
+
         </activity>
     </application>
 

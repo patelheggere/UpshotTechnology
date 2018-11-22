@@ -5,10 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.admin.upshothelloworld.DBHelper;
 
 public class DBManager {
+    private static final String TAG = "DBManager";
     private DBHelper dbHelper;
 
     private Context context;
@@ -39,7 +41,7 @@ public class DBManager {
     }
 
     public Cursor fetch() {
-        String[] columns = new String[] { DBHelper._ID, DBHelper.NAME, DBHelper.PHONE };
+        String[] columns = new String[] { DBHelper.NAME, DBHelper.PHONE, DBHelper.EMAIL };
         Cursor cursor = database.query(DBHelper.TABLE_NAME, columns, null, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
@@ -47,17 +49,18 @@ public class DBManager {
         return cursor;
     }
 
-    public int update(long _id, String name, String Phone, String email) {
+    public int update(String _id, String name, String Phone, String email) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DBHelper.NAME, name);
         contentValues.put(DBHelper.PHONE, Phone);
         contentValues.put(DBHelper.EMAIL, email);
-        int i = database.update(DBHelper.TABLE_NAME, contentValues, DBHelper._ID + " = " + _id, null);
+        int i = database.update(DBHelper.TABLE_NAME, contentValues, DBHelper.PHONE + " = " + _id, null);
         return i;
     }
 
-    public void delete(long _id) {
-        database.delete(DBHelper.TABLE_NAME, DBHelper._ID + "=" + _id, null);
+    public int delete(String phone) {
+        Log.d(TAG, "delete: ");
+        return database.delete(DBHelper.TABLE_NAME, DBHelper.PHONE + "=" + phone, null);
     }
 
 }
